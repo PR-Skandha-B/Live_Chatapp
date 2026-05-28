@@ -1,0 +1,13 @@
+# Flutter/Android artifacts
+Frontend_app_UI/build/
+Frontend_app_UI/.dart_tool/
+Frontend_app_UI/android/.gradle/
+Frontend_app_UI/android/app/build/
+Frontend_app_UI/android/app/src/main/res/mipmap-*/ic_launcher.png
+
+# Backend artifacts
+backend/node_modules/
+backend/.env
+
+# OS
+.DS_Store
