@@ -4,7 +4,7 @@ Cross-platform real-time chat app with group messaging, direct messages, read re
 
 **Live Demo**: [https://your-netlify-url.netlify.app](https://your-netlify-url.netlify.app)  
 **Backend**: [https://your-railway-url.up.railway.app](https://your-railway-url.up.railway.app)  
-**GitHub**: [github.com/YOUR-USERNAME/chat-app](https://github.com/YOUR-USERNAME/chat-app)
+**GitHub**: [https://github.com/PR-Skandha-B/Live_Chatapp.git](https://github.com/YOUR-USERNAME/chat-app)
 
 ---
 
