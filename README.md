@@ -1,60 +1,116 @@
-# Real-Time Chat App
+# Real-Time Chat Application
 
-A complete, production-ready real-time chat application built with Node.js, Socket.io, MongoDB, and Flutter.
+Cross-platform real-time chat app with group messaging, direct messages, read receipts, and emoji reactions.
 
-## Features
+**Live Demo**: [https://your-netlify-url.netlify.app](https://your-netlify-url.netlify.app)  
+**Backend**: [https://your-railway-url.up.railway.app](https://your-railway-url.up.railway.app)  
+**GitHub**: [github.com/YOUR-USERNAME/chat-app](https://github.com/YOUR-USERNAME/chat-app)
 
-- Real-time messaging with Socket.io
-- JWT-based authentication
-- Create and join chat rooms via invite codes
-- Typing indicators
-- Emoji reactions on messages
-- Persistent token storage
-- Dark mode support
-
-## Setup Instructions
-
-### Backend Setup
-
-1. Navigate to the `backend` folder:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Copy `.env.example` to `.env` and fill in your variables (especially `MONGO_URI`):
-   ```bash
-   cp .env.example .env
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-### Flutter App Setup
-
-1. Navigate to the `flutter_app` folder:
-   ```bash
-   cd Frontend_app_UI
-   ```
-2. Get packages:
-   ```bash
-   flutter pub get
-   ```
-3. Ensure the emulator is running, or update `AppConstants.baseUrl` and `AppConstants.socketUrl` in `lib/utils/constants.dart` if using a real device.
-4. Run the app:
-   ```bash
-   flutter run
-   ```
+---
 
 ## Screenshots
 
-*Screenshots will be added here*
+### Login & Authentication
+![Login Screen](Screenshots/Login_page.png)
 
-## Resume Bullet Points
+### App Home Screen 
+![App Screen](Screenshots/App_Home_Screen.png)
 
-- Developed a full-stack real-time chat application using Flutter and Node.js/Socket.io, serving seamless instant messaging capabilities across mobile platforms.
-- Implemented robust JWT authentication and structured room-based chat logic, leveraging MongoDB for persistent message history and user data.
-- Engineered dynamic UI elements in Flutter including real-time typing indicators, reaction pickers, and auto-scrolling message lists, managed efficiently via the Provider pattern.
+### Options
+![Chat Screen](Screenshots/User_Options.png)
+
+### Rooms List & Home Screen
+![Rooms List](Screenshots/Room_Details.png)
+
+### Chat with Reactions & Read Receipts
+![Chat Screen](Screenshots/Reactions.png)
+
+### User Profile Edit
+![Rooms List](Screenshots/Profile_Edit.png)
+
+
+
+---
+
+## Tech Stack
+
+### Backend
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Real-time**: Socket.io (WebSocket)
+- **Database**: MongoDB
+- **Auth**: JWT
+- **Deployment**: Railway
+
+### Frontend
+- **Framework**: Flutter (Dart)
+- **State Management**: Provider
+- **Storage**: Hive (local)
+- **UI**: Material 3
+- **Deployment**: Netlify (Web build)
+
+---
+
+## Features
+
+✅ **Real-time Messaging**
+- WebSocket-based communication via Socket.io
+- Persistent connections for instant message delivery
+- Room isolation (group chats & DMs)
+
+✅ **Read Receipts**
+- Per-user tracking of who has seen messages
+- Visual indicators (single ✓ = sent, double ✓✓ = seen)
+- Blue double-tick on sent messages
+
+✅ **Emoji Reactions**
+- React to messages with 100+ emojis
+- Toggle emoji on/off
+- Exchange emojis (switch from one to another)
+- Real-time reaction updates
+
+✅ **Message Threading**
+- Swipe-to-reply on messages
+- Quoted message previews
+- Threaded conversation view
+
+✅ **Direct Messaging**
+- One-on-one private conversations
+- Auto-create DM rooms on first message
+- Per-user message visibility (soft delete)
+
+✅ **Typing Indicators**
+- See when others are typing
+- Real-time status updates
+- Auto-clear after 3 seconds
+
+✅ **Room Management**
+- Create group chat rooms
+- Join via invite code
+- Edit room name/description (admin only)
+- View room members
+
+✅ **Message Features**
+- Delete messages (sender only)
+- Forward to other rooms
+- Message history (last 50 messages)
+- Timestamp on each message
+
+✅ **Authentication**
+- JWT-based user authentication
+- Secure password hashing (bcrypt)
+- Login & registration
+- Token persistence (local storage / Hive)
+
+---
+
+## Architecture
+Frontend (Flutter)                Backend (Node.js)              Database
+↓                                  ↓                            ↓
+[Login Screen] ──HTTP──→ [Auth Routes]                          [MongoDB]
+[Rooms List]  ──HTTP──→ [Room Routes]   ↔️  [Models]               │
+[Chat Screen] ←→ WebSocket ↔️ [Socket Handlers]                   │
+↓                      ↑                                        │
+[Local State]           [Real-time Events]  ←────────→ [Message Storage]
+(Provider)             (Socket.io)                     [User Profiles]
+[Room Config]
