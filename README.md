@@ -2,35 +2,9 @@
 
 Cross-platform real-time chat app with group messaging, direct messages, read receipts, and emoji reactions.
 
-**Live Demo**: [https://your-netlify-url.netlify.app](https://your-netlify-url.netlify.app)  
-**Backend**: [https://your-railway-url.up.railway.app](https://your-railway-url.up.railway.app)  
-**GitHub**: [https://github.com/PR-Skandha-B/Live_Chatapp.git](https://github.com/YOUR-USERNAME/chat-app)
-
----
-
-## Screenshots
-
-### Login & Authentication
-![Login Screen](Screenshots/Login_page.png)
-
-### App Home Screen 
-![App Screen](Screenshots/App_Home_Screen.png)
-
-### Options
-![Chat Screen](Screenshots/User_Options.png)
-
-### Rooms List & Home Screen
-![Rooms List](Screenshots/Room_Details.png)
-
-### Chat with Reactions & Read Receipts
-![Chat Screen](Screenshots/Reactions.png)
-
-### User Profile Edit
-![Rooms List](Screenshots/Profile_Edit.png)
-
-
-
----
+**Live Demo**: [https://https://live-chatapp-ekizwf2na-rsb-207-projects.vercel.app](https://https://live-chatapp-ekizwf2na-rsb-207-projects.vercel.app)  
+**Backend**: [https://livechatapp-production-dc3a.up.railway.app](https:livechatapp-production-dc3a.up.railway.app)  
+**GitHub**: [https://github.com/PR-Skandha-B/Live_Chatapp.git](https://github.com/PR-Skandha-B/Live_Chatapp.git)
 
 ## Tech Stack
 
@@ -104,13 +78,67 @@ Cross-platform real-time chat app with group messaging, direct messages, read re
 
 ---
 
+---
+
+## Screenshots
+
+### Login & Authentication
+![Login Screen](Screenshots/Login_page.png)
+
+### App Home Screen
+![App Screen](Screenshots/App_Home_Screen.png)
+
+### Options
+![Chat Screen](Screenshots/User_Options.png)
+
+### Rooms List & Home Screen
+![Rooms List](Screenshots/Room_Details.png)
+
+### Chat with Reactions & Read Receipts
+![Chat Screen](Screenshots/Reactions.png)
+
+### User Profile Edit
+![Rooms List](Screenshots/Profile_Edit.png)
+
+---
+
 ## Architecture
-Frontend (Flutter)                Backend (Node.js)              Database
-↓                                  ↓                            ↓
-[Login Screen] ──HTTP──→ [Auth Routes]                          [MongoDB]
-[Rooms List]  ──HTTP──→ [Room Routes]   ↔️  [Models]               │
-[Chat Screen] ←→ WebSocket ↔️ [Socket Handlers]                   │
-↓                      ↑                                        │
-[Local State]           [Real-time Events]  ←────────→ [Message Storage]
-(Provider)             (Socket.io)                     [User Profiles]
-[Room Config]
+
+```mermaid
+flowchart LR
+
+    subgraph Frontend [Flutter Frontend]
+        A[Login Screen]
+        B[Rooms List]
+        C[Chat Screen]
+        D[Provider State Management]
+    end
+
+    subgraph Backend [Node.js + Express Backend]
+        E[Auth Routes]
+        F[Room Routes]
+        G[Socket.io Handlers]
+        H[Data Models]
+    end
+
+    subgraph Database [MongoDB]
+        I[(User Profiles)]
+        J[(Message Storage)]
+        K[(Room Configuration)]
+    end
+
+    A -->|HTTP| E
+    B -->|HTTP| F
+    C <-->|WebSocket| G
+
+    E --> H
+    F --> H
+    G --> H
+
+    H --> I
+    H --> J
+    H --> K
+
+    D --> C
+    G -->|Real-time Events| C
+```
