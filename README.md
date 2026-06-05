@@ -21,7 +21,7 @@ Cross-platform real-time chat app with group messaging, direct messages, read re
 - **State Management**: Provider
 - **Storage**: Hive (local)
 - **UI**: Material 3
-- **Deployment**: Netlify (Web build)
+- **Deployment**: Vercel (Web build)
 
 ---
 
