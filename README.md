@@ -2,7 +2,7 @@
 
 Cross-platform real-time chat app with group messaging, direct messages, read receipts, and emoji reactions.
 
-**Live Demo**: [https://https://live-chatapp-ekizwf2na-rsb-207-projects.vercel.app](https://https://live-chatapp-ekizwf2na-rsb-207-projects.vercel.app)  
+**Live Demo**: [live-chatapp-ekizwf2na-rsb-207-projects.vercel.app](live-chatapp-ekizwf2na-rsb-207-projects.vercel.app)  
 **Backend**: [https://livechatapp-production-dc3a.up.railway.app](https:livechatapp-production-dc3a.up.railway.app)  
 **GitHub**: [https://github.com/PR-Skandha-B/Live_Chatapp.git](https://github.com/PR-Skandha-B/Live_Chatapp.git)
 
